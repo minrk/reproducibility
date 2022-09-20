@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Contributing &#8212; MyPackage - The reproducible template for Simula Research Laboratory</title>
+    <title>Jupyter-book &#8212; MyPackage - The reproducible template for Simula Research Laboratory</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="API Reference" href="api.html" />
+    <link rel="next" title="An introduction to the light format" href="demo.html" />
+    <link rel="prev" title="Github tools" href="github.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -107,12 +108,32 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="README.html">
+                <a class="reference internal" href="index.html">
                     Reproducible workflow for researchers
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="badges.html">
+   Badges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="packaging.html">
+   Python-packaging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="github.html">
+   Github tools
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Jupyter-book
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="demo.html">
    An introduction to the light format
@@ -121,11 +142,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="api.html">
    API Reference
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Contributing
   </a>
  </li>
 </ul>
@@ -218,7 +234,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jorgensd/reproducibility/issues/new?title=Issue%20on%20page%20%2FCONTRIBUTING.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jorgensd/reproducibility/issues/new?title=Issue%20on%20page%20%2Fpublishing.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -246,7 +262,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/CONTRIBUTING.md"
+        <a href="_sources/publishing.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -283,23 +299,80 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-a-minimal-book">
+   Building a minimal book
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-python-package-api">
+   Adding Python package API
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-demos">
+   Adding demos
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Contributing</h1>
+                <h1>Jupyter-book</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-a-minimal-book">
+   Building a minimal book
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-python-package-api">
+   Adding Python package API
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-demos">
+   Adding demos
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -307,16 +380,17 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">#</a></h1>
-<p>To contribute to this repository:</p>
-<ol class="simple">
-<li><p>Create a <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork</a> of the repository.</p></li>
-<li><p><a class="reference external" href="https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository">Clone</a> the forked repository.</p></li>
-<li><p>Checkout a new branch (using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">name_of_branch</span></code>), where name of branch should be replaced by <code class="docutils literal notranslate"><span class="pre">your_github_username/description_of_feature</span></code>. For instance, <code class="docutils literal notranslate"><span class="pre">jorgensd/add_guidelines</span></code>.</p></li>
-<li><p>Add your contribution and push it to your fork.</p></li>
-<li><p>Make a <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork">pull request from your fork</a>.</p></li>
-</ol>
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-book">
+<h1>Jupyter-book<a class="headerlink" href="#jupyter-book" title="Permalink to this headline">#</a></h1>
+<section id="building-a-minimal-book">
+<h2>Building a minimal book<a class="headerlink" href="#building-a-minimal-book" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="adding-python-package-api">
+<h2>Adding Python package API<a class="headerlink" href="#adding-python-package-api" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="adding-demos">
+<h2>Adding demos<a class="headerlink" href="#adding-demos" title="Permalink to this headline">#</a></h2>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -346,12 +420,19 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="api.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="github.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">API Reference</p>
+            <p class="prev-next-title">Github tools</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="demo.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">An introduction to the light format</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

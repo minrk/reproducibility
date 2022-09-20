@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Reproducible workflow for researchers &#8212; MyPackage - The reproducible template for Simula Research Laboratory</title>
+    <title>Github tools &#8212; MyPackage - The reproducible template for Simula Research Laboratory</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="An introduction to the light format" href="demo.html" />
+    <link rel="next" title="Jupyter-book" href="publishing.html" />
+    <link rel="prev" title="Python-packaging" href="packaging.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -106,13 +107,33 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
                     Reproducible workflow for researchers
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="badges.html">
+   Badges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="packaging.html">
+   Python-packaging
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Github tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="publishing.html">
+   Jupyter-book
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="demo.html">
    An introduction to the light format
@@ -121,11 +142,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="api.html">
    API Reference
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="CONTRIBUTING.html">
-   Contributing
   </a>
  </li>
 </ul>
@@ -218,7 +234,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jorgensd/reproducibility/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jorgensd/reproducibility/issues/new?title=Issue%20on%20page%20%2Fgithub.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -246,7 +262,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/README.md"
+        <a href="_sources/github.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -306,42 +322,30 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#badges">
-   Badges
+  <a class="reference internal nav-link" href="#issue-template">
+   Issue template
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-packaging">
-   Python-packaging
+  <a class="reference internal nav-link" href="#workflows">
+   Workflows
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uploading-artifacts">
+     Uploading artifacts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#publishing-to-pages">
+     Publishing to Pages
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#make-a-repository-citable">
    Make a repository citable
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adding-an-issue-template">
-   Adding an issue template
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contributing">
-   Contributing
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-id-ghpages-a-auto-publish-to-github-pages">
-   <a id="ghpages">
-   </a>
-   Auto-publish to Github Pages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-id-jupyterbook-a-jupyter-book">
-   <a id="jupyterbook">
-   </a>
-   Jupyter-book
   </a>
  </li>
 </ul>
@@ -353,7 +357,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Reproducible workflow for researchers</h1>
+                <h1>Github tools</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -364,42 +368,30 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#badges">
-   Badges
+  <a class="reference internal nav-link" href="#issue-template">
+   Issue template
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-packaging">
-   Python-packaging
+  <a class="reference internal nav-link" href="#workflows">
+   Workflows
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uploading-artifacts">
+     Uploading artifacts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#publishing-to-pages">
+     Publishing to Pages
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#make-a-repository-citable">
    Make a repository citable
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adding-an-issue-template">
-   Adding an issue template
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contributing">
-   Contributing
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-id-ghpages-a-auto-publish-to-github-pages">
-   <a id="ghpages">
-   </a>
-   Auto-publish to Github Pages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-id-jupyterbook-a-jupyter-book">
-   <a id="jupyterbook">
-   </a>
-   Jupyter-book
   </a>
  </li>
 </ul>
@@ -412,54 +404,26 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="reproducible-workflow-for-researchers">
-<h1>Reproducible workflow for researchers<a class="headerlink" href="#reproducible-workflow-for-researchers" title="Permalink to this headline">#</a></h1>
-<p>This repository is a template for how to set up a reproducible python environment with GitHub.</p>
-<section id="badges">
-<h2>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://mybinder.org/v2/gh/jorgensd/reproducibility/gh-pages?labpath=_sources"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
-<p>To get the <code class="docutils literal notranslate"><span class="pre">Launch</span> <span class="pre">Binder</span></code> badge, go to: <a class="reference external" href="https://mybinder.org/">https://mybinder.org/</a> and fill in (specifics for this repo in brackets):</p>
-<ul class="simple">
-<li><p>Your Github repository (<a class="reference external" href="https://github.com/jorgensd/reproducibility">https://github.com/jorgensd/reproducibility</a>)</p></li>
-<li><p>Git ref (<code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>, see: <a class="reference external" href="#ghpages">How to create github pages</a>)</p></li>
-<li><p>Path to notebook file (<code class="docutils literal notranslate"><span class="pre">_sources</span></code>, as generated by <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code>, see <a class="reference external" href="#jupyterbook">Jupyter-book</a>)</p></li>
-</ul>
-<p>Then press <code class="docutils literal notranslate"><span class="pre">Launch</span></code>, and then <code class="docutils literal notranslate"><span class="pre">Expand</span> <span class="pre">to</span> <span class="pre">see</span> <span class="pre">the</span> <span class="pre">text</span> <span class="pre">below,</span> <span class="pre">paste</span> <span class="pre">it</span> <span class="pre">into</span> <span class="pre">your</span> <span class="pre">README</span> <span class="pre">to</span> <span class="pre">show</span> <span class="pre">a</span> <span class="pre">binder</span> <span class="pre">badge</span></code> and copy the markdown code. If you render the <a class="reference external" href="http://README.md">README.md</a> file as plaintext, you can see all the settings explicitly in the image link</p>
-<p><a class="reference external" href="https://jorgensd.github.io/reproducibility"><img alt="Jupyter Book Badge" src="https://jupyterbook.org/badge.svg" /></a></p>
-<p>Replace link in image (<a class="reference external" href="https://jorgensd.github.io/reproducibility">https://jorgensd.github.io/reproducibility</a>) with your <a class="reference external" href="#ghpages">Github pages url</a></p>
-<p><img alt="MIT License" src="https://img.shields.io/github/license/jorgensd/reproducibility" /></p>
-<p>Replace <code class="docutils literal notranslate"><span class="pre">username/repo</span></code> in image link with appropriate user/respository.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="github-tools">
+<h1>Github tools<a class="headerlink" href="#github-tools" title="Permalink to this headline">#</a></h1>
+<section id="issue-template">
+<h2>Issue template<a class="headerlink" href="#issue-template" title="Permalink to this headline">#</a></h2>
+<p>See <a class="reference external" href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository">Adding an issue template</a> for more information.</p>
 </section>
-<section id="python-packaging">
-<h2>Python-packaging<a class="headerlink" href="#python-packaging" title="Permalink to this headline">#</a></h2>
-<p>To be able to create a python package, we need a folder with the name of the package (in this repository it is called <code class="docutils literal notranslate"><span class="pre">mypackage</span></code>, located under <code class="docutils literal notranslate"><span class="pre">src/mypackage</span></code>), and a <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file.</p>
+<section id="workflows">
+<h2>Workflows<a class="headerlink" href="#workflows" title="Permalink to this headline">#</a></h2>
+<section id="uploading-artifacts">
+<h3>Uploading artifacts<a class="headerlink" href="#uploading-artifacts" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="publishing-to-pages">
+<h3>Publishing to Pages<a class="headerlink" href="#publishing-to-pages" title="Permalink to this headline">#</a></h3>
+</section>
 </section>
 <section id="make-a-repository-citable">
 <h2>Make a repository citable<a class="headerlink" href="#make-a-repository-citable" title="Permalink to this headline">#</a></h2>
 <p>The easiest way to make your repository citable is to add a <code class="docutils literal notranslate"><span class="pre">CITATION.cff</span></code> file to the repository, as it is supported by both
 <a class="reference external" href="https://zenodo.org/">Zenodo’s</a> and it’s <a class="reference external" href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">Github integration</a> and <a class="reference external" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files">Github</a> itself.</p>
 </section>
-<section id="adding-an-issue-template">
-<h2>Adding an issue template<a class="headerlink" href="#adding-an-issue-template" title="Permalink to this headline">#</a></h2>
-<p>See <a class="reference external" href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository">Adding an issue template</a> for more information.</p>
-</section>
-<section id="contributing">
-<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">#</a></h2>
-<p>Contributions are always welcome!</p>
-<p>See <a class="reference internal" href="CONTRIBUTING.html"><span class="doc std std-doc">CONTRIBUTING.md</span></a> for ways to get started.</p>
-<p>A good idea is to look at the <a class="reference external" href="https://github.com/jorgensd/reproducibility/issues">issue tracker</a> and see if you can resolve any open issues.  A list of good first issues can be found <a class="reference external" href="https://github.com/jorgensd/reproducibility/contribute">here</a></p>
-<p>If you find a bug in the source code, please <a class="reference external" href="https://github.com/jorgensd/reproducibility/issues/new">open an issue</a>.</p>
-</section>
-<section id="a-id-ghpages-a-auto-publish-to-github-pages">
-<h2><a id="ghpages"></a> Auto-publish to Github Pages<a class="headerlink" href="#a-id-ghpages-a-auto-publish-to-github-pages" title="Permalink to this headline">#</a></h2>
-<p>Add text</p>
-</section>
-<section id="a-id-jupyterbook-a-jupyter-book">
-<h2><a id="jupyterbook"></a> Jupyter-book<a class="headerlink" href="#a-id-jupyterbook-a-jupyter-book" title="Permalink to this headline">#</a></h2>
-<p>Add text</p>
-</section>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -489,10 +453,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="demo.html" title="next page">
+    <a class='left-prev' id="prev-link" href="packaging.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Python-packaging</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="publishing.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">An introduction to the light format</p>
+        <p class="prev-next-title">Jupyter-book</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
