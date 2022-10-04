@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Badges &#8212; MyPackage - The reproducible template for Simula Research Laboratory</title>
+    <title>Publishing docker image for your package &#8212; MyPackage - The reproducible template for Simula Research Laboratory</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="An introduction to the light format" href="../demo.html" />
+    <link rel="next" title="Badges" href="../part5/badges.html" />
+    <link rel="prev" title="Publishing conda package" href="conda.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -219,12 +220,34 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Other Features
+  Distribution
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pypi.html">
+   Publishing package to pypi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="conda.html">
+   Publishing conda package
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
+   Publishing docker image for your package
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Other Features
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5/badges.html">
    Badges
   </a>
  </li>
@@ -318,7 +341,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jorgensd/reproducibility/issues/new?title=Issue%20on%20page%20%2Fpart4/badges.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jorgensd/reproducibility/issues/new?title=Issue%20on%20page%20%2Fpart4/docker.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -346,7 +369,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/part4/badges.md"
+        <a href="../_sources/part4/docker.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -383,80 +406,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binder">
-   Binder
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jupyter-book">
-   Jupyter book
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#licence">
-   Licence
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Badges</h1>
+                <h1>Publishing docker image for your package</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binder">
-   Binder
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jupyter-book">
-   Jupyter book
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#licence">
-   Licence
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -464,29 +430,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="badges">
-<h1>Badges<a class="headerlink" href="#badges" title="Permalink to this headline">#</a></h1>
-<section id="binder">
-<h2>Binder<a class="headerlink" href="#binder" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://mybinder.org/v2/gh/jorgensd/reproducibility/gh-pages?labpath=_sources"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
-<p>To get the <code class="docutils literal notranslate"><span class="pre">Launch</span> <span class="pre">Binder</span></code> badge, go to: <a class="reference external" href="https://mybinder.org/">https://mybinder.org/</a> and fill in (specifics for this repo in brackets):</p>
-<ul class="simple">
-<li><p>Your Github repository (<a class="reference external" href="https://github.com/jorgensd/reproducibility">https://github.com/jorgensd/reproducibility</a>)</p></li>
-<li><p>Git ref (<code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>, see: <a class="reference external" href="#ghpages">How to create github pages</a>)</p></li>
-<li><p>Path to notebook file (<code class="docutils literal notranslate"><span class="pre">_sources</span></code>, as generated by <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code>, see <a class="reference external" href="#jupyterbook">Jupyter-book</a>)</p></li>
-</ul>
-<p>Then press <code class="docutils literal notranslate"><span class="pre">Launch</span></code>, and then <code class="docutils literal notranslate"><span class="pre">Expand</span> <span class="pre">to</span> <span class="pre">see</span> <span class="pre">the</span> <span class="pre">text</span> <span class="pre">below,</span> <span class="pre">paste</span> <span class="pre">it</span> <span class="pre">into</span> <span class="pre">your</span> <span class="pre">README</span> <span class="pre">to</span> <span class="pre">show</span> <span class="pre">a</span> <span class="pre">binder</span> <span class="pre">badge</span></code> and copy the markdown code. If you render the <a class="reference external" href="http://README.md">README.md</a> file as plaintext, you can see all the settings explicitly in the image link</p>
-</section>
-<section id="jupyter-book">
-<h2>Jupyter book<a class="headerlink" href="#jupyter-book" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://jorgensd.github.io/reproducibility"><img alt="Jupyter Book Badge" src="https://jupyterbook.org/badge.svg" /></a></p>
-<p>Replace link in image (<a class="reference external" href="https://jorgensd.github.io/reproducibility">https://jorgensd.github.io/reproducibility</a>) with your <a class="reference external" href="#ghpages">Github pages url</a></p>
-</section>
-<section id="licence">
-<h2>Licence<a class="headerlink" href="#licence" title="Permalink to this headline">#</a></h2>
-<p><img alt="MIT License" src="https://img.shields.io/github/license/jorgensd/reproducibility" /></p>
-<p>Replace <code class="docutils literal notranslate"><span class="pre">username/repo</span></code> in image link with appropriate user/respository.</p>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="publishing-docker-image-for-your-package">
+<h1>Publishing docker image for your package<a class="headerlink" href="#publishing-docker-image-for-your-package" title="Permalink to this headline">#</a></h1>
+<p>Publishing a docker image is perhaps one of the best ways to make sure that people are able to run your package in exactly the same environment as you. GitHub has the possibility to <a class="reference external" href="https://docs.github.com/en/actions/publishing-packages/publishing-docker-images">publish docker images</a> as a part of GitHub packages</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -516,12 +462,19 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../demo.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="conda.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">An introduction to the light format</p>
+            <p class="prev-next-title">Publishing conda package</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="../part5/badges.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Badges</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
