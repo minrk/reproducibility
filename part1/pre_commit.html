@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Testing &#8212; MyPackage - The reproducible template for Simula Research Laboratory</title>
+    <title>Pre-commit hooks &#8212; MyPackage - The reproducible template for Simula Research Laboratory</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Pre-commit hooks" href="pre_commit.html" />
-    <link rel="prev" title="Python typing" href="typing.html" />
+    <link rel="next" title="Github tools" href="../part2/github.html" />
+    <link rel="prev" title="Testing" href="testing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -139,13 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
    Python typing
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="testing.html">
    Testing
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pre_commit.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Pre-commit hooks
   </a>
  </li>
@@ -346,7 +346,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jorgensd/reproducibility/issues/new?title=Issue%20on%20page%20%2Fpart1/testing.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jorgensd/reproducibility/issues/new?title=Issue%20on%20page%20%2Fpart1/pre_commit.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -374,7 +374,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/part1/testing.md"
+        <a href="../_sources/part1/pre_commit.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -411,23 +411,60 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-pre-commit-in-ci">
+   Running pre-commit in CI
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Testing</h1>
+                <h1>Pre-commit hooks</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-pre-commit-in-ci">
+   Running pre-commit in CI
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -435,8 +472,26 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="testing">
-<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="pre-commit-hooks">
+<h1>Pre-commit hooks<a class="headerlink" href="#pre-commit-hooks" title="Permalink to this headline">#</a></h1>
+<p>Using pre-commit hooks is a great way to make sure that the code you commit to the repo follows some common style. This way, you will not end up changing the style back and forth when collaborating with other people.</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> in the root of the repo contains a set of default pre-commit hooks. You can find more hooks in the <a class="reference external" href="https://pre-commit.com/hooks.html">pre-commit home page</a>.</p>
+<p>To install the pre-commit hook you first need to install pre-commit</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pre</span><span class="o">-</span><span class="n">commit</span>
+</pre></div>
+</div>
+<p>and then install the pre-commit hook</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span><span class="o">-</span><span class="n">commit</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>The pre-commit hook will only run on the files you commit to the repo. To run the pre-commit hook on all the files in your repo, you can execute the command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span><span class="o">-</span><span class="n">commit</span> <span class="n">run</span> <span class="o">--</span><span class="nb">all</span>
+</pre></div>
+</div>
+<section id="running-pre-commit-in-ci">
+<h2>Running pre-commit in CI<a class="headerlink" href="#running-pre-commit-in-ci" title="Permalink to this headline">#</a></h2>
+<p>You can also run the pre-commit hooks as a part of your continuous integration. You can check out the <a class="reference external" href="https://github.com/pre-commit/action">GitHub action</a>, or you can set up at webhook using <a class="reference external" href="https://pre-commit.ci">pre-commit.ci</a>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -466,17 +521,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="typing.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="testing.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Python typing</p>
+            <p class="prev-next-title">Testing</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="pre_commit.html" title="next page">
+    <a class='right-next' id="next-link" href="../part2/github.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Pre-commit hooks</p>
+        <p class="prev-next-title">Github tools</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
