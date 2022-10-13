@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python typing" href="typing.html" />
+    <link rel="next" title="Pre-commit hooks" href="pre_commit.html" />
     <link rel="prev" title="Coverage reports" href="coverage.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -137,11 +137,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Python formatting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="typing.html">
-   Python typing
   </a>
  </li>
  <li class="toctree-l1">
@@ -411,12 +406,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#following-the-pep8-style-guide">
+   Following the PEP8 style guide
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-consistency">
+   Code consistency
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -428,6 +452,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#following-the-pep8-style-guide">
+   Following the PEP8 style guide
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-consistency">
+   Code consistency
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -437,6 +479,64 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="python-formatting">
 <h1>Python formatting<a class="headerlink" href="#python-formatting" title="Permalink to this headline">#</a></h1>
+<section id="following-the-pep8-style-guide">
+<h2>Following the PEP8 style guide<a class="headerlink" href="#following-the-pep8-style-guide" title="Permalink to this headline">#</a></h2>
+<p>To ensure that your Python-code is well formatted, one can use tools such as <a class="reference external" href="https://flake8.pycqa.org/en/latest/">flake8</a>, which can be installed with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install flake8
+</pre></div>
+</div>
+<p>Flake8 checks the consistency (following the <a class="reference external" href="https://peps.python.org/pep-0008/">PEP8 style guide</a>) of your code, using</p>
+<ul class="simple">
+<li><p>Pyflake, with the following <a class="reference external" href="https://flake8.pycqa.org/en/latest/user/error-codes.html">checks</a></p></li>
+<li><p>Pycodestyle, with the following <a class="reference external" href="https://pycodestyle.pycqa.org/en/latest/intro.html#error-codes">checks</a></p></li>
+</ul>
+<p>Flake8 can be executed with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m flake8
+</pre></div>
+</div>
+<p>Call</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m flake8 --help
+</pre></div>
+</div>
+<p>for listing the listing options</p>
+<p>We add a <code class="docutils literal notranslate"><span class="pre">.flake8</span></code> file in the project root with some additional configurations</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">flake8</span><span class="p">]</span>
+<span class="n">exclude</span> <span class="o">=</span> <span class="n">docs</span><span class="p">,</span><span class="n">venv</span>
+<span class="nb">max</span><span class="o">-</span><span class="n">line</span><span class="o">-</span><span class="n">length</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</section>
+<section id="code-consistency">
+<h2>Code consistency<a class="headerlink" href="#code-consistency" title="Permalink to this headline">#</a></h2>
+<p>Flake8 only checks the consistency of your code to a certain extent.
+Modern Python allows for <a class="reference external" href="https://peps.python.org/pep-0484/">type hints</a> which means that you can specify the input and output type for functions.</p>
+<p>However, type-checking does not happen during run-time.
+We prefer using <a class="reference external" href="http://mypy-lang.org/">mypy</a> to perform these checks.
+Mypy can be installed from PYPI</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install mypy
+</pre></div>
+</div>
+<p>and be executed as</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m mypy
+</pre></div>
+</div>
+<p>We add the following options to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.mypy]</span><span class="w"></span>
+<span class="n">ignore_missing_imports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="c1"># Folders to exclude</span><span class="w"></span>
+<span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;docs/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;build/&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+<span class="w"> </span><span class="c1"># Folder to check with mypy</span><span class="w"></span>
+<span class="n">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&quot;src&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;tests&quot;</span><span class="w"> </span><span class="c1"># Does not show errors when importing untyped libraries</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">ignore_missing_imports</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to supress all errors coming from third-party libraries that are untyped.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -473,10 +573,10 @@ title="Print to PDF"
             <p class="prev-next-title">Coverage reports</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="typing.html" title="next page">
+    <a class='right-next' id="next-link" href="pre_commit.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python typing</p>
+        <p class="prev-next-title">Pre-commit hooks</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

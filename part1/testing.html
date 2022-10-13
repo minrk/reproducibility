@@ -140,11 +140,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="typing.html">
-   Python typing
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="pre_commit.html">
    Pre-commit hooks
   </a>
@@ -441,11 +436,11 @@ title="Print to PDF"
 There are several types of tests, see for instanche <a class="reference external" href="https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing">Atlassian</a> for a summary.</p>
 <p>The most important types of tests are the <em>unit tests</em>, which tests the core functionality of your code.</p>
 <p>The most common testing suite for Python in <a class="reference external" href="https://docs.pytest.org/en/latest/">pytest</a>, which can be installed from the <a class="reference external" href="https://docs.pytest.org/en/latest/">Python Package Index</a> (PYPI) using</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install pytest
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install pytest
 </pre></div>
 </div>
 <p>You can run <code class="docutils literal notranslate"><span class="pre">pytest</span></code> as</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pytest
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pytest
 Pytest will <span class="k">then</span> find all files with names like <span class="sb">`</span>test_*.py<span class="sb">`</span> and <span class="sb">`</span>*_test.py<span class="sb">`</span>, see: <span class="o">[</span>Conventions <span class="k">for</span> <span class="nb">test</span> discovery<span class="o">](</span>https://docs.pytest.org/en/latest/explanation/goodpractices.html#test-discovery<span class="o">)</span> <span class="k">for</span> more information.
 
 We add the following information to <span class="sb">`</span>pyproject.toml<span class="sb">`</span> under table header: <span class="sb">`</span><span class="o">[</span>project.optional-dependencies<span class="o">]</span><span class="sb">`</span>
