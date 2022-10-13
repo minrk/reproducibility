@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Python formatting" href="linting.html" />
-    <link rel="prev" title="Create an installable package" href="packaging.html" />
+    <link rel="prev" title="Testing" href="testing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -124,6 +124,11 @@ const thebe_selector_output = ".output, .cell_output"
    Create an installable package
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="testing.html">
+   Testing
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Coverage reports
@@ -137,11 +142,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="typing.html">
    Python typing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="testing.html">
-   Testing
   </a>
  </li>
  <li class="toctree-l1">
@@ -437,6 +437,28 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="coverage-reports">
 <h1>Coverage reports<a class="headerlink" href="#coverage-reports" title="Permalink to this headline">#</a></h1>
+<p>When creating a Python package, it can be very useful to know what part of your code is covered by the tests.</p>
+<p>We recommend using <a class="reference external" href="https://pytest-cov.readthedocs.io/en/latest/">pytest-cov</a> which extends the <a class="reference internal" href="testing.html"><span class="doc std std-doc">pytest</span></a> suite with a coverage report of your package.</p>
+<p>We add to the <code class="docutils literal notranslate"><span class="pre">addopts</span></code> section of the <code class="docutils literal notranslate"><span class="pre">[tool.pytest.ini_options]</span></code> table:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># Other options...</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;--cov=mypackage --cov-report html --cov-report term-missing -v&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We use Github Actions to upload the coverage report as an artifact after executing the tests. We add the following step</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span><span class="w"></span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python -m pytest</span><span class="w"> </span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload coverage report as artifact</span><span class="w"></span>
+<span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matrix.os == &#39;ubuntu-22.04&#39; &amp;&amp; matrix.python-version == &#39;3.10&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v3</span><span class="w"></span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">code-coverage-report</span><span class="w"></span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">htmlcov</span><span class="w"></span>
+<span class="w">          </span><span class="nt">if-no-files-found</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">error</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -466,11 +488,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="packaging.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="testing.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Create an installable package</p>
+            <p class="prev-next-title">Testing</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="linting.html" title="next page">
