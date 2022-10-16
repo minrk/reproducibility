@@ -178,13 +178,6 @@ const thebe_selector_output = ".output, .cell_output"
    Building a book
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Creating a Package API
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../part3/auto_api.html">
    Auto-generation
@@ -204,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../part3/auto_demos.html">
-   Auto-conversion of demos
+   Jupytext
   </a>
  </li>
  <li class="toctree-l1">
@@ -231,7 +224,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../part4/docker.html">
-   Publishing docker image for your package
+   Publishing Docker image for your package
   </a>
  </li>
 </ul>
@@ -436,22 +429,22 @@ There are several types of tests, see for instanche <a class="reference external
 </div>
 <p>You can run <code class="docutils literal notranslate"><span class="pre">pytest</span></code> as</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pytest
-Pytest will <span class="k">then</span> find all files with names like <span class="sb">`</span>test_*.py<span class="sb">`</span> and <span class="sb">`</span>*_test.py<span class="sb">`</span>, see: <span class="o">[</span>Conventions <span class="k">for</span> <span class="nb">test</span> discovery<span class="o">](</span>https://docs.pytest.org/en/latest/explanation/goodpractices.html#test-discovery<span class="o">)</span> <span class="k">for</span> more information.
+</pre></div>
+</div>
+<p>Pytest will then find all files with names like <code class="docutils literal notranslate"><span class="pre">test_*.py</span></code> and <code class="docutils literal notranslate"><span class="pre">*_test.py</span></code>, see: <a class="reference external" href="https://docs.pytest.org/en/latest/explanation/goodpractices.html#test-discovery">Conventions for test discovery</a> for more information.</p>
+<p>We add the following information to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> under table header: <code class="docutils literal notranslate"><span class="pre">[project.optional-dependencies]</span></code></p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project.optional-dependencies]</span><span class="w"></span>
+<span class="c1"># Other entries</span><span class="w"></span>
+<span class="c1"># ....</span><span class="w"></span>
+<span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">   </span><span class="s">&quot;pytest&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
 
-We add the following information to <span class="sb">`</span>pyproject.toml<span class="sb">`</span> under table header: <span class="sb">`</span><span class="o">[</span>project.optional-dependencies<span class="o">]</span><span class="sb">`</span>
-<span class="sb">```</span>toml
-<span class="o">[</span>project.optional-dependencies<span class="o">]</span>
-<span class="c1"># Other entries</span>
-<span class="c1"># ....</span>
-<span class="nb">test</span> <span class="o">=</span> <span class="o">[</span>
-   <span class="s2">&quot;pytest&quot;</span>,
-<span class="o">]</span>
-
-<span class="o">[</span>tool.pytest.ini_options<span class="o">]</span>
-<span class="nv">addopts</span> <span class="o">=</span> <span class="o">[</span>
-    <span class="s2">&quot;--import-mode=importlib&quot;</span>,
-    <span class="c1"># Other entries ....</span>
-<span class="o">]</span>
+<span class="k">[tool.pytest.ini_options]</span><span class="w"></span>
+<span class="n">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;--import-mode=importlib&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># Other entries ....</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The last option is due to pytest’s recommendation for new projects, see <a class="reference external" href="https://docs.pytest.org/en/latest/explanation/goodpractices.html#choosing-an-import-mode">Choosing an import mode</a> for more information.</p>
